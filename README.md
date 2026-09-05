@@ -4,7 +4,7 @@ Este es el sitio web que armamos para **Cafetería Olivia**, como parte de la Ac
 
 ## Equipo
 
-- Diego Rocha
+- Diego Alejandro Rocha Rodríguez
 - Yan Vicente Silva Huerta
 - Leonardo Filiberto López Arvizu
 
