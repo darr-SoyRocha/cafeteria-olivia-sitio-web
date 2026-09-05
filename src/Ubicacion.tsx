@@ -1,5 +1,5 @@
 export function Ubicacion() {
-  const direccion = 'Av. Reforma 123, Centro, Tamazula de Gordiano, Jalisco';
+  const direccion = 'C. Hidalgo 52, Tamazula, 49650 Tamazula de Gordiano, Jalisco';
   const mapsQuery = encodeURIComponent(`Cafetería Olivia, ${direccion}`);
 
   const horarios = [
