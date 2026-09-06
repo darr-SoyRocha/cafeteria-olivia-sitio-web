@@ -8,7 +8,7 @@ type ItemMenu = {
 
 export function Menu() {
   const bebidas: ItemMenu[] = [
-    { nombre: 'Americano', precio: 60, descripcion: 'Café intenso y equilibrado.', disponible: true, imagen: 'images/americano.jpg' },
+    { nombre: 'Americano', precio: 60, descripcion: 'Café intenso y equilibrado.', disponible: true, imagen: ${import.meta.env.BASE_URL}images/americano.jpg },
     { nombre: 'Latte', precio: 80, descripcion: 'Espresso suave con leche cremosa.', disponible: true },
     { nombre: 'Cappuccino', precio: 85, descripcion: 'Espuma de leche y espresso.', disponible: true },
     { nombre: 'Espresso', precio: 70, descripcion: 'Pequeño, intenso y aromático.', disponible: true },
