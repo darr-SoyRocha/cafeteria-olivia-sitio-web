@@ -8,20 +8,20 @@ type ItemMenu = {
 
 export function Menu() {
   const bebidas: ItemMenu[] = [
-    { nombre: 'Americano', precio: 60, descripcion: 'Café intenso y equilibrado.', disponible: true, imagen: 'americano.jpg' },
-    { nombre: 'Latte', precio: 80, descripcion: 'Espresso suave con leche cremosa.', disponible: true, imagen: 'latte.jpg' },
-    { nombre: 'Cappuccino', precio: 85, descripcion: 'Espuma de leche y espresso.', disponible: true, imagen: 'cappuccino.jpg'},
-    { nombre: 'Espresso', precio: 70, descripcion: 'Pequeño, intenso y aromático.', disponible: true, imagen: 'espresso.jpg' },
-    { nombre: 'Moka', precio: 90, descripcion: 'Espresso, chocolate y leche.', disponible: false, imagen: 'moka.jpg' },
-    { nombre: 'Chocolate caliente', precio: 80, descripcion: 'Chocolate cremoso y reconfortante.', disponible: true, imagen: 'chocolate caliente.jpg' },
+    { nombre: 'Americano', precio: 60, descripcion: 'Café intenso y equilibrado.', disponible: true, imagen: '/images/americano.jpg' },
+    { nombre: 'Latte', precio: 80, descripcion: 'Espresso suave con leche cremosa.', disponible: true, imagen: '/images/latte.jpg' },
+    { nombre: 'Cappuccino', precio: 85, descripcion: 'Espuma de leche y espresso.', disponible: true, imagen: '/images/cappuccino.jpg'},
+    { nombre: 'Espresso', precio: 70, descripcion: 'Pequeño, intenso y aromático.', disponible: true, imagen: '/images/espresso.jpg' },
+    { nombre: 'Moka', precio: 90, descripcion: 'Espresso, chocolate y leche.', disponible: false, imagen: '/images/moka.jpg' },
+    { nombre: 'Chocolate caliente', precio: 80, descripcion: 'Chocolate cremoso y reconfortante.', disponible: true, imagen: '/images/chocolate.jpg' },
   ];
 
   const postres: ItemMenu[] = [
-    { nombre: 'Croissant', precio: 35, descripcion: 'Horneado, ligero y crujiente.', disponible: true, imagen: 'croissant.jpg' },
-    { nombre: 'Muffin', precio: 50, descripcion: 'Dulce, suave y recién horneado.', disponible: true, imagen: 'muffin.jpg' },
-    { nombre: 'Rebanada de pastel de chocolate', precio: 60, descripcion: 'Húmedo y delicioso, con extra de chocolate.', disponible: true, imagen: 'pastel de chocolate.jpg' },
-    { nombre: 'Rebanada de pastel de capuchino', precio: 60, descripcion: 'Intenso y sabroso.', disponible: false, imagen: 'pastel cafe.jpg' },
-    { nombre: 'Sándwich', precio: 65, descripcion: 'Una opción práctica y deliciosa.', disponible: true, imagen: 'sandwich.jpg' },
+    { nombre: 'Croissant', precio: 35, descripcion: 'Horneado, ligero y crujiente.', disponible: true, imagen: '/images/croissant.jpg' },
+    { nombre: 'Muffin', precio: 50, descripcion: 'Dulce, suave y recién horneado.', disponible: true, imagen: '/images/muffin.jpg' },
+    { nombre: 'Rebanada de pastel de chocolate', precio: 60, descripcion: 'Húmedo y delicioso, con extra de chocolate.', disponible: true, imagen: '/images/pastel-chocolate.jpg' },
+    { nombre: 'Rebanada de pastel de capuchino', precio: 60, descripcion: 'Intenso y sabroso.', disponible: false, imagen: '/images/pastel-cafe.jpg' },
+    { nombre: 'Sándwich', precio: 65, descripcion: 'Una opción práctica y deliciosa.', disponible: true, imagen: '/images/sandwich.jpg' },
   ];
 
   return (
@@ -61,7 +61,7 @@ function MenuCard({ item, icono }: { item: ItemMenu; icono: string }) {
         </span>
       </div>
       <div className="menu-card-precio">
-        <img src={`images/${item.imagen}`} alt={item.nombre} />
+        <img src={`${item.imagen}`} alt={item.nombre} />
         <span>{icono}</span>
         <span>${item.precio}</span>
       </div>
