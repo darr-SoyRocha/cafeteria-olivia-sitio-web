@@ -3,6 +3,7 @@ type ItemMenu = {
   precio: number;
   descripcion: string;
   disponible: boolean;
+  imagen: string;
 };
 
 export function Menu() {
