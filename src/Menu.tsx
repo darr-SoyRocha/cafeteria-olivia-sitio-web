@@ -9,19 +9,19 @@ type ItemMenu = {
 export function Menu() {
   const bebidas: ItemMenu[] = [
     { nombre: 'Americano', precio: 60, descripcion: 'Café intenso y equilibrado.', disponible: true, imagen: 'americano.jpg' },
-    { nombre: 'Latte', precio: 80, descripcion: 'Espresso suave con leche cremosa.', disponible: true },
-    { nombre: 'Cappuccino', precio: 85, descripcion: 'Espuma de leche y espresso.', disponible: true },
-    { nombre: 'Espresso', precio: 70, descripcion: 'Pequeño, intenso y aromático.', disponible: true },
-    { nombre: 'Moka', precio: 90, descripcion: 'Espresso, chocolate y leche.', disponible: false },
-    { nombre: 'Chocolate caliente', precio: 80, descripcion: 'Chocolate cremoso y reconfortante.', disponible: true },
+    { nombre: 'Latte', precio: 80, descripcion: 'Espresso suave con leche cremosa.', disponible: true, imagen: 'latte.jpg' },
+    { nombre: 'Cappuccino', precio: 85, descripcion: 'Espuma de leche y espresso.', disponible: true, imagen: 'cappuccino.jpg'},
+    { nombre: 'Espresso', precio: 70, descripcion: 'Pequeño, intenso y aromático.', disponible: true, imagen: 'espresso.jpg' },
+    { nombre: 'Moka', precio: 90, descripcion: 'Espresso, chocolate y leche.', disponible: false, imagen: 'moka.jpg' },
+    { nombre: 'Chocolate caliente', precio: 80, descripcion: 'Chocolate cremoso y reconfortante.', disponible: true, imagen: 'chocolate caliente.jpg' },
   ];
 
   const postres: ItemMenu[] = [
-    { nombre: 'Croissant', precio: 35, descripcion: 'Horneado, ligero y crujiente.', disponible: true },
-    { nombre: 'Muffin', precio: 50, descripcion: 'Dulce, suave y recién horneado.', disponible: true },
-    { nombre: 'Rebanada de pastel de chocolate', precio: 60, descripcion: 'Húmedo y delicioso, con extra de chocolate.', disponible: true },
-    { nombre: 'Rebanada de pastel de capuchino', precio: 60, descripcion: 'Intenso y sabroso.', disponible: false },
-    { nombre: 'Sándwich', precio: 65, descripcion: 'Una opción práctica y deliciosa.', disponible: true },
+    { nombre: 'Croissant', precio: 35, descripcion: 'Horneado, ligero y crujiente.', disponible: true, imagen: 'croissant.jpg' },
+    { nombre: 'Muffin', precio: 50, descripcion: 'Dulce, suave y recién horneado.', disponible: true, imagen: 'muffin.jpg' },
+    { nombre: 'Rebanada de pastel de chocolate', precio: 60, descripcion: 'Húmedo y delicioso, con extra de chocolate.', disponible: true, imagen: 'pastel de chocolate.jpg' },
+    { nombre: 'Rebanada de pastel de capuchino', precio: 60, descripcion: 'Intenso y sabroso.', disponible: false, imagen: 'pastel cafe.jpg' },
+    { nombre: 'Sándwich', precio: 65, descripcion: 'Una opción práctica y deliciosa.', disponible: true, imagen: 'sandwich.jpg' },
   ];
 
   return (
