@@ -61,7 +61,7 @@ function MenuCard({ item, icono }: { item: ItemMenu; icono: string }) {
         </span>
       </div>
       <div className="menu-card-precio">
-        <img src={`/images/${item.imagen}`} alt={item.nombre} />
+        <img src={`images/${item.imagen}`} alt={item.nombre} />
         <span>{icono}</span>
         <span>${item.precio}</span>
       </div>
