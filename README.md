@@ -1,52 +1,64 @@
-# ☕ Cafetería Olivia — Sitio Web
+# Cafetería Olivia — US-01 a US-10
 
-Este es el sitio web que armamos para **Cafetería Olivia**, como parte de la Actividad Integradora de Proyectos 2 ("Sprint, el corazón de SCRUM"). Tomamos el Product Backlog y Sprint Backlog que ya habíamos trabajado y lo llevamos a código real con **React + TypeScript + Vite**.
+Sitio web desarrollado con React + TypeScript + Vite.
 
-## Equipo
+Esta versión conserva el diseño visual, paleta, componentes y las imágenes locales del proyecto de referencia de Cafetería Olivia, y además integra las historias US-06 a US-10.
 
-- Diego Alejandro Rocha Rodríguez
-- Yan Vicente Silva Huerta
-- Leonardo Filiberto López Arvizu
+## Historias implementadas
 
-## Qué tiene el sitio
+- US-01: Página de inicio.
+- US-02: Menú digital con bebidas, postres, precios, disponibilidad e imágenes locales.
+- US-03: Diseño responsivo.
+- US-04: Ubicación, horarios y Google Maps.
+- US-05: Contacto por WhatsApp.
+- US-06: Formulario de reservaciones y eventos privados.
+- US-07: Reseñas y calificaciones.
+- US-08: Galería de fotografías utilizando las imágenes locales del proyecto.
+- US-09: Suscripción al newsletter.
+- US-10: Enlaces a redes sociales.
 
-- **Inicio** — la presentación de la cafetería, con sus botones para ir al menú o a las opiniones.
-- **Menú** — bebidas y postres, con precio, descripción y si está disponible o agotado.
-- **Ubicación y horarios** — dónde estamos, mapa y a qué hora abrimos cada día.
-- **Opiniones** — lo que dicen los clientes, más un formulario para dejar tu propia reseña.
-- **WhatsApp** — un botón flotante que simula la atención al cliente (con respuestas automáticas) y también deja abrir WhatsApp real para escribirnos.
+## Estructura principal
 
-## Cómo correrlo en tu compu
+```text
+src/
+├── App.tsx
+├── inicio.tsx
+├── Menu.tsx
+├── Ubicacion.tsx
+├── Opiniones.tsx
+├── WhatsApp.tsx
+├── Reservaciones.tsx
+├── Galeria.tsx
+├── Newsletter.tsx
+├── RedesSociales.tsx
+├── App.css
+├── index.css
+└── main.tsx
 
-Necesitas tener Node.js instalado (versión 18 o más nueva).
+public/
+└── images/
+    ├── americano.jpg
+    ├── cappuccino.jpg
+    ├── chocolate.jpg
+    ├── croissant.jpg
+    ├── espresso.jpg
+    ├── latte.jpg
+    ├── moka.jpg
+    ├── muffin.jpg
+    ├── pastel-cafe.jpg
+    ├── pastel-chocolate.jpg
+    └── sandwich.jpg
+```
+
+## Ejecutar
 
 ```bash
 npm install
 npm run dev
 ```
 
-Y ya, se abre en `http://localhost:5173`.
-
-Si quieres ver la versión final optimizada:
+## Compilar
 
 ```bash
 npm run build
-npm run preview
 ```
-
-## Cómo está organizado
-
-```
-src/
-  App.tsx         El layout general: header, menú de navegación, secciones y footer
-  inicio.tsx       Sección de inicio
-  Menu.tsx         Sección de menú
-  Ubicacion.tsx    Sección de ubicación y horarios
-  Opiniones.tsx    Sección de reseñas
-  WhatsApp.tsx     El botoncito flotante de WhatsApp
-  App.css / index.css   Los estilos de todo el sitio
-```
-
-## Sobre el proceso
-
-El Product Backlog, las fichas de cada historia y la calendarización de los sprints están documentados aparte, en el reporte que subimos a la plataforma del curso. El avance del equipo lo llevamos en Trello.

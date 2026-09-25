@@ -5,7 +5,7 @@ type Mensaje = {
   texto: string;
 };
 
-const NUMERO_WHATSAPP = '523411218786';
+const NUMERO_WHATSAPP = '525555555555';
 
 const RESPUESTAS_AUTOMATICAS = [
   '¡Gracias por escribirnos! Un miembro del equipo de Cafetería Olivia te responderá en breve por WhatsApp ☕',

@@ -56,8 +56,8 @@ button {
 }
 
 #root {
-  max-width: 1180px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

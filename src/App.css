@@ -1,11 +1,13 @@
+/* Layout principal */
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
 }
 
-/* ---------- Header ---------- */
 .header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,6 +34,8 @@
 .nav {
   display: flex;
   gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .nav a {
@@ -47,8 +51,13 @@
   border-color: var(--acento);
 }
 
-/* ---------- Secciones genéricas ---------- */
+main {
+  width: 100%;
+  flex: 1;
+}
+
 main > section {
+  width: 100%;
   padding: 64px 32px;
   border-bottom: 1px solid var(--borde);
 }
@@ -73,7 +82,6 @@ main > section {
   font-size: 2rem;
 }
 
-/* ---------- Botones ---------- */
 .boton-primario,
 .boton-secundario {
   display: inline-flex;
@@ -107,7 +115,7 @@ main > section {
   background: var(--cafe-claro);
 }
 
-/* ---------- Inicio ---------- */
+/* Inicio */
 .inicio {
   background: linear-gradient(180deg, var(--cafe-claro) 0%, var(--crema) 100%);
   text-align: center;
@@ -135,7 +143,7 @@ main > section {
   justify-content: center;
 }
 
-/* ---------- Menú ---------- */
+/* Menú */
 .menu-subtitulo {
   margin: 32px 0 16px;
   font-size: 1.2rem;
@@ -177,6 +185,13 @@ main > section {
   color: var(--cafe-medio);
 }
 
+.menu-card-precio img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .badge {
   font-size: 0.7rem;
   font-weight: 700;
@@ -195,14 +210,7 @@ main > section {
   color: var(--peligro);
 }
 
-.menu-card-precio img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* ---------- Ubicación ---------- */
+/* Ubicación */
 .ubicacion-contenido {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -251,7 +259,7 @@ main > section {
   color: var(--texto-suave);
 }
 
-/* ---------- Opiniones ---------- */
+/* Opiniones */
 .opiniones {
   background: var(--cafe-claro);
 }
@@ -307,8 +315,139 @@ main > section {
   resize: vertical;
 }
 
-/* ---------- Footer ---------- */
+/* Secciones adicionales */
+.reservaciones,
+.galeria,
+.newsletter,
+.redes {
+  background: var(--crema);
+}
+
+.formulario-extra {
+  max-width: 820px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.formulario-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.formulario-extra label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--cafe-oscuro);
+  font-weight: 600;
+}
+
+.formulario-extra input,
+.formulario-extra select,
+.formulario-extra textarea,
+.newsletter-form input {
+  width: 100%;
+  font: inherit;
+  padding: 11px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--borde);
+  background: #fff;
+  color: var(--texto);
+}
+
+.formulario-extra textarea {
+  resize: vertical;
+}
+
+.form-success {
+  color: var(--exito);
+  font-weight: 600;
+}
+
+/* Galería */
+.galeria {
+  padding: 2rem;
+  text-align: center;
+}
+
+.galeria-contenedor {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.galeria-contenedor img {
+  width: 250px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Newsletter */
+.newsletter-form {
+  max-width: 650px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.newsletter-form .boton-primario {
+  cursor: pointer;
+}
+
+/* Redes */
+.redes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.red-social-card {
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: var(--sombra);
+  text-decoration: none;
+  color: var(--cafe-oscuro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.red-social-card:hover {
+  transform: translateY(-2px);
+}
+
+.red-social-icon {
+  font-size: 2rem;
+  color: var(--acento);
+  font-weight: 700;
+}
+
+.red-social-card span:last-child {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+/* Footer a todo lo ancho */
 .footer {
+  width: 100%;
   padding: 32px;
   text-align: center;
   background: #877a71;
@@ -316,7 +455,7 @@ main > section {
   font-size: 0.86rem;
 }
 
-/* ---------- WhatsApp flotante ---------- */
+/* WhatsApp */
 .whatsapp-widget {
   position: fixed;
   right: 20px;
@@ -329,18 +468,18 @@ main > section {
 }
 
 .whatsapp-boton {
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   border: none;
   background: #25d366;
   color: white;
-  font-size: 1.4rem;
+  font-size: 2rem;
   box-shadow: var(--sombra);
 }
 
 .whatsapp-panel {
-  width: 300px;
+  width: 360px;
   max-width: 80vw;
   background: white;
   border-radius: 16px;
@@ -435,19 +574,28 @@ main > section {
   border-top: 1px solid var(--borde);
 }
 
-/* ---------- Responsivo ---------- */
+/* Adaptación para pantallas pequeñas */
 @media (max-width: 860px) {
-  .ubicacion-contenido,
-  .opiniones-contenido {
-    grid-template-columns: 1fr;
+  .header {
+    justify-content: center;
+    padding: 16px 20px;
+  }
+
+  .nav {
+    justify-content: center;
+    gap: 14px;
+    font-size: 0.9rem;
   }
 
   main > section {
     padding: 48px 20px;
   }
 
-  .nav {
-    gap: 14px;
-    font-size: 0.9rem;
+  .ubicacion-contenido,
+  .opiniones-contenido,
+  .formulario-grid,
+  .redes-grid,
+  .newsletter-form {
+    grid-template-columns: 1fr;
   }
 }
