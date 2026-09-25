@@ -2,8 +2,6 @@
 
 Sitio web desarrollado con React + TypeScript + Vite.
 
-Esta versión conserva el diseño visual, paleta, componentes y las imágenes locales del proyecto de referencia de Cafetería Olivia, y además integra las historias US-06 a US-10.
-
 ## Historias implementadas
 
 - US-01: Página de inicio.
@@ -19,7 +17,6 @@ Esta versión conserva el diseño visual, paleta, componentes y las imágenes lo
 
 ## Estructura principal
 
-```text
 src/
 ├── App.tsx
 ├── inicio.tsx
@@ -48,17 +45,12 @@ public/
     ├── pastel-cafe.jpg
     ├── pastel-chocolate.jpg
     └── sandwich.jpg
-```
 
 ## Ejecutar
 
-```bash
 npm install
 npm run dev
-```
 
 ## Compilar
 
-```bash
 npm run build
-```
