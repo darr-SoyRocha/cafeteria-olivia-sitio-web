@@ -793,3 +793,273 @@ main > section {
     grid-template-columns: 1fr;
   }
 }
+
+/* Confirmación de pedido (US-11b) */
+.pedido-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pedido-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+  text-align: left;
+}
+
+.pedido-datos label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 600;
+  color: var(--cafe-oscuro);
+}
+
+.pedido-datos input,
+.pedido-datos textarea {
+  font: inherit;
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--borde);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pedido-confirmacion {
+  max-width: 520px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: var(--sombra);
+  text-align: left;
+}
+
+.pedido-confirmacion ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+}
+
+.pedido-confirmacion li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--borde);
+}
+
+.pedido-nota {
+  color: var(--texto-suave);
+  margin: 10px 0;
+}
+
+.pedido-confirmacion a.boton-primario {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Alta y baja de productos (US-12) */
+.admin-pestanas {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-pestanas button {
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--borde);
+  background: white;
+  color: var(--cafe-oscuro);
+  cursor: pointer;
+}
+
+.admin-pestanas button.activo {
+  background: var(--cafe-medio);
+  border-color: var(--cafe-medio);
+  color: white;
+}
+
+.admin-alta {
+  max-width: none;
+  margin: 0;
+}
+
+.boton-peligro {
+  font: inherit;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--peligro);
+  background: var(--peligro-bg);
+  color: var(--peligro);
+  cursor: pointer;
+}
+
+/* Blog (US-14) */
+.blog,
+.lealtad {
+  background: var(--crema);
+}
+
+.blog-filtros {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.blog-filtros button {
+  font: inherit;
+  padding: 7px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--borde);
+  background: white;
+  color: var(--cafe-oscuro);
+  cursor: pointer;
+}
+
+.blog-filtros button.activo {
+  background: var(--acento);
+  border-color: var(--acento);
+  color: white;
+}
+
+.blog-lista {
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.blog-entrada {
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--sombra);
+  text-align: left;
+}
+
+.blog-entrada h3 {
+  margin: 10px 0 6px;
+  color: var(--cafe-oscuro);
+}
+
+.blog-entrada p {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.badge-evento {
+  background: var(--cafe-claro);
+  color: var(--cafe-oscuro);
+}
+
+.blog-vacio {
+  text-align: center;
+}
+
+/* Programa de lealtad (US-13, demostración) */
+.lealtad-contenido {
+  max-width: 820px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.lealtad-aviso {
+  max-width: 820px;
+  margin: 18px auto 0;
+}
+
+.lealtad-tarjeta {
+  max-width: 820px;
+  margin: 18px auto 0;
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: var(--sombra);
+  text-align: left;
+}
+
+.lealtad-nombre {
+  margin: 0;
+  font-weight: 600;
+  color: var(--cafe-oscuro);
+}
+
+.lealtad-puntos {
+  margin: 4px 0;
+  font-size: 1.1rem;
+}
+
+.lealtad-puntos strong {
+  font-size: 2rem;
+  color: var(--acento);
+}
+
+.lealtad-meta {
+  color: var(--texto-suave);
+  margin: 0 0 12px;
+}
+
+.lealtad-recompensas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lealtad-recompensas li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--borde);
+}
+
+.lealtad-recompensas button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lealtad-nota {
+  max-width: 820px;
+  margin: 18px auto 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .lealtad-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-tabla {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.pedido-confirmacion .admin-acciones {
+  margin-top: 16px;
+}

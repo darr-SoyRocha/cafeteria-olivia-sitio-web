@@ -1,9 +1,18 @@
 import { createContext, useContext } from 'react';
-import type { ItemMenu } from './datosMenu';
+import type { Categoria, ItemMenu } from './datosMenu';
+
+export type NuevoItem = {
+  nombre: string;
+  categoria: Categoria;
+  precio: number;
+  descripcion: string;
+};
 
 export type MenuContexto = {
   items: ItemMenu[];
   actualizarItem: (id: string, cambios: Partial<Pick<ItemMenu, 'precio' | 'disponible'>>) => void;
+  agregarItem: (nuevo: NuevoItem) => void;
+  eliminarItem: (id: string) => void;
   restablecer: () => void;
 };
 

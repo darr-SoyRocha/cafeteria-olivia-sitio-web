@@ -9,7 +9,11 @@ import Newsletter from './Newsletter';
 import RedesSociales from './RedesSociales';
 import Pedido from './Pedido';
 import Admin from './Admin';
+import Blog from './Blog';
+import Lealtad from './Lealtad';
 import { MenuProvider } from './MenuProvider';
+import { BlogProvider } from './BlogProvider';
+import { LealtadProvider } from './LealtadProvider';
 import './App.css';
 
 export function Header() {
@@ -25,6 +29,8 @@ export function Header() {
         <a href="#pedido">Pedido</a>
         <a href="#ubicacion">Ubicación</a>
         <a href="#opiniones">Opiniones</a>
+        <a href="#blog">Blog</a>
+        <a href="#lealtad">Lealtad</a>
         <a href="#reservaciones">Reservaciones</a>
         <a href="#galeria">Galería</a>
         <a href="#newsletter">Newsletter</a>
@@ -48,6 +54,8 @@ export function Footer() {
 export default function App() {
   return (
     <MenuProvider>
+    <BlogProvider>
+    <LealtadProvider>
     <div className="app">
       <Header />
 
@@ -57,6 +65,8 @@ export default function App() {
         <Pedido />
         <Ubicacion />
         <Opiniones />
+        <Blog />
+        <Lealtad />
         <Reservaciones />
         <Galeria />
         <Newsletter />
@@ -68,6 +78,8 @@ export default function App() {
 
       <WhatsApp />
     </div>
+    </LealtadProvider>
+    </BlogProvider>
     </MenuProvider>
   );
 }

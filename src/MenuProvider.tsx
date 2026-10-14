@@ -1,44 +1,56 @@
-import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
 import { menuInicial } from './datosMenu';
 import type { ItemMenu } from './datosMenu';
 import { MenuStore } from './menuStore';
 import type { MenuContexto } from './menuStore';
+import { esObjeto, usePersistido } from './almacen';
 
-const CLAVE = 'olivia-menu-v1';
+// v2 guarda la lista completa (permite productos nuevos y eliminados); v1 solo guardaba precio y disponibilidad.
+const CLAVE = 'olivia-menu-v2';
 
-function cargarMenu(): ItemMenu[] {
-  try {
-    const guardado = localStorage.getItem(CLAVE);
-    if (!guardado) return menuInicial;
-    const lista = JSON.parse(guardado) as Array<Pick<ItemMenu, 'id' | 'precio' | 'disponible'>>;
-    // Solo se respetan precio y disponibilidad; el resto sale siempre de datosMenu.ts
-    return menuInicial.map((base) => {
-      const cambio = lista.find((x) => x.id === base.id);
-      return cambio && Number.isFinite(cambio.precio) ? { ...base, precio: cambio.precio, disponible: !!cambio.disponible } : base;
-    });
-  } catch {
-    return menuInicial;
-  }
-}
+const esItem = (x: unknown): x is ItemMenu =>
+  esObjeto(x) &&
+  typeof x.id === 'string' &&
+  (x.categoria === 'bebida' || x.categoria === 'postre') &&
+  typeof x.nombre === 'string' &&
+  typeof x.precio === 'number' &&
+  Number.isFinite(x.precio) &&
+  typeof x.descripcion === 'string' &&
+  typeof x.disponible === 'boolean';
+
+const esListaMenu = (x: unknown): x is ItemMenu[] => Array.isArray(x) && x.every(esItem);
+
+const crearId = (nombre: string) =>
+  `${nombre.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}-${Date.now().toString(36)}`;
 
 export function MenuProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<ItemMenu[]>(cargarMenu);
-
-  useEffect(() => {
-    try {
-      const resumen = items.map(({ id, precio, disponible }) => ({ id, precio, disponible }));
-      localStorage.setItem(CLAVE, JSON.stringify(resumen));
-    } catch {
-      // sin almacenamiento disponible: el menú sigue funcionando en memoria
-    }
-  }, [items]);
+  const [items, setItems] = usePersistido<ItemMenu[]>(CLAVE, menuInicial, esListaMenu);
 
   const actualizarItem: MenuContexto['actualizarItem'] = (id, cambios) => {
     setItems((actual) => actual.map((it) => (it.id === id ? { ...it, ...cambios } : it)));
   };
 
+  const agregarItem: MenuContexto['agregarItem'] = (nuevo) => {
+    const item: ItemMenu = {
+      id: crearId(nuevo.nombre),
+      categoria: nuevo.categoria,
+      nombre: nuevo.nombre.trim(),
+      precio: nuevo.precio,
+      descripcion: nuevo.descripcion.trim(),
+      disponible: true,
+    };
+    setItems((actual) => [...actual, item]);
+  };
+
+  const eliminarItem: MenuContexto['eliminarItem'] = (id) => {
+    setItems((actual) => actual.filter((it) => it.id !== id));
+  };
+
   const restablecer = () => setItems(menuInicial);
 
-  return <MenuStore.Provider value={{ items, actualizarItem, restablecer }}>{children}</MenuStore.Provider>;
+  return (
+    <MenuStore.Provider value={{ items, actualizarItem, agregarItem, eliminarItem, restablecer }}>
+      {children}
+    </MenuStore.Provider>
+  );
 }

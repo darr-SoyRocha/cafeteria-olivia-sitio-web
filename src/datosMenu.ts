@@ -7,7 +7,7 @@ export type ItemMenu = {
   precio: number;
   descripcion: string;
   disponible: boolean;
-  imagen: string;
+  imagen?: string;
 };
 
 export const menuInicial: ItemMenu[] = [
