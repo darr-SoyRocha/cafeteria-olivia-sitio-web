@@ -10,6 +10,7 @@ export type NuevaEntrada = {
 
 export type BlogContexto = {
   entradas: EntradaBlog[];
+  error: string | null;
   agregarEntrada: (nueva: NuevaEntrada) => void;
   eliminarEntrada: (id: string) => void;
   restablecerBlog: () => void;

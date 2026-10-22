@@ -10,6 +10,7 @@ export type NuevoItem = {
 
 export type MenuContexto = {
   items: ItemMenu[];
+  error: string | null;
   actualizarItem: (id: string, cambios: Partial<Pick<ItemMenu, 'precio' | 'disponible'>>) => void;
   agregarItem: (nuevo: NuevoItem) => void;
   eliminarItem: (id: string) => void;

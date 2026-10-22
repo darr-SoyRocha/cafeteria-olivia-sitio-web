@@ -1,11 +1,10 @@
 import { useState } from 'react';
+import { NUMERO_WHATSAPP } from './config';
 
 type Mensaje = {
   autor: 'cliente' | 'olivia';
   texto: string;
 };
-
-const NUMERO_WHATSAPP = '525555555555';
 
 const RESPUESTAS_AUTOMATICAS = [
   '¡Gracias por escribirnos! Un miembro del equipo de Cafetería Olivia te responderá en breve por WhatsApp ☕',

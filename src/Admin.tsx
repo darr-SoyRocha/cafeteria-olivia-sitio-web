@@ -1,25 +1,23 @@
 import { useState } from 'react';
 import AdminMenu from './AdminMenu';
 import AdminBlog from './AdminBlog';
-
-// Acceso de demostración: valida en el navegador, no sustituye una autenticación real con backend.
-const PIN_DEMO = '1234';
+import { useAuth } from './authStore';
 
 export default function Admin() {
-  const [autorizado, setAutorizado] = useState(false);
-  const [pin, setPin] = useState('');
-  const [error, setError] = useState(false);
+  const { correo, esAdmin, cargando, entrar, salir } = useAuth();
+  const [correoForm, setCorreoForm] = useState('');
+  const [contrasena, setContrasena] = useState('');
+  const [error, setError] = useState('');
+  const [enviando, setEnviando] = useState(false);
   const [pestana, setPestana] = useState<'menu' | 'blog'>('menu');
 
-  const entrar = (event: React.FormEvent<HTMLFormElement>) => {
+  const iniciar = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (pin === PIN_DEMO) {
-      setAutorizado(true);
-      setError(false);
-    } else {
-      setError(true);
-    }
-    setPin('');
+    setEnviando(true);
+    const fallo = await entrar(correoForm, contrasena);
+    setEnviando(false);
+    setContrasena('');
+    setError(fallo ?? '');
   };
 
   return (
@@ -30,14 +28,24 @@ export default function Admin() {
         <p>Gestiona el menú y las publicaciones del blog sin tocar el código.</p>
       </div>
 
-      {!autorizado ? (
-        <form className="admin-acceso" onSubmit={entrar}>
-          <label>PIN de administrador
-            <input type="password" inputMode="numeric" value={pin} onChange={(e) => setPin(e.target.value)} placeholder="••••" required />
+      {cargando ? (
+        <p className="pedido-vacio admin-estado">Comprobando sesión…</p>
+      ) : !correo ? (
+        <form className="admin-acceso" onSubmit={iniciar}>
+          <label>Correo
+            <input type="email" autoComplete="username" value={correoForm} onChange={(e) => setCorreoForm(e.target.value)} required />
           </label>
-          <button className="boton-primario" type="submit">Entrar</button>
-          {error && <p className="form-error">PIN incorrecto. Intenta de nuevo.</p>}
+          <label>Contraseña
+            <input type="password" autoComplete="current-password" value={contrasena} onChange={(e) => setContrasena(e.target.value)} required />
+          </label>
+          <button className="boton-primario" type="submit" disabled={enviando}>{enviando ? 'Entrando…' : 'Entrar'}</button>
+          {error && <p className="form-error" role="alert">{error}</p>}
         </form>
+      ) : !esAdmin ? (
+        <div className="admin-acceso">
+          <p className="form-error" role="alert">La cuenta {correo} no tiene permisos de administrador.</p>
+          <button type="button" className="boton-secundario" onClick={() => void salir()}>Cerrar sesión</button>
+        </div>
       ) : (
         <div className="admin-panel">
           <div className="admin-pestanas" role="tablist" aria-label="Secciones de administración">
@@ -46,7 +54,8 @@ export default function Admin() {
           </div>
           {pestana === 'menu' ? <AdminMenu /> : <AdminBlog />}
           <div className="admin-acciones">
-            <button type="button" className="boton-secundario" onClick={() => setAutorizado(false)}>Cerrar sesión</button>
+            <span className="admin-sesion">Sesión: {correo}</span>
+            <button type="button" className="boton-secundario" onClick={() => void salir()}>Cerrar sesión</button>
           </div>
         </div>
       )}

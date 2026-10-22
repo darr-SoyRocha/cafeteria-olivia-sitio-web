@@ -3,7 +3,7 @@ import { useBlog } from './blogStore';
 import type { TipoEntrada } from './datosBlog';
 
 export default function AdminBlog() {
-  const { entradas, agregarEntrada, eliminarEntrada, restablecerBlog } = useBlog();
+  const { entradas, error, agregarEntrada, eliminarEntrada, restablecerBlog } = useBlog();
   const [tipo, setTipo] = useState<TipoEntrada>('noticia');
   const [titulo, setTitulo] = useState('');
   const [fecha, setFecha] = useState('');
@@ -51,6 +51,7 @@ export default function AdminBlog() {
       </form>
 
       {aviso && <p className="form-success" role="status">{aviso}</p>}
+      {error && <p className="form-error" role="alert">{error}</p>}
 
       <table className="admin-tabla">
         <thead>
@@ -69,7 +70,7 @@ export default function AdminBlog() {
       </table>
 
       <div className="admin-acciones">
-        <button type="button" className="boton-secundario" onClick={restablecerBlog}>Restablecer publicaciones originales</button>
+        <button type="button" className="boton-secundario" onClick={() => { if (window.confirm('Esto reemplaza las publicaciones actuales por las originales para todos los visitantes. ¿Continuar?')) restablecerBlog(); }}>Restablecer publicaciones originales</button>
       </div>
     </>
   );

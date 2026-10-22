@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useMenu } from './menuStore';
 import { puntosPorCompra, useLealtad } from './lealtadStore';
-
-const NUMERO_PEDIDOS = '525555555555';
+import { NUMERO_WHATSAPP } from './config';
 
 type Linea = { nombre: string; cantidad: number; subtotal: number };
 
@@ -81,7 +80,7 @@ export default function Pedido() {
   };
 
   if (confirmado) {
-    const enlace = `https://wa.me/${NUMERO_PEDIDOS}?text=${encodeURIComponent(mensajeWhatsApp(confirmado))}`;
+    const enlace = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensajeWhatsApp(confirmado))}`;
     return (
       <section id="pedido" className="pedido">
         <div className="seccion-titulo">

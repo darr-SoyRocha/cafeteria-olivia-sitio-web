@@ -3,7 +3,7 @@ import { useMenu } from './menuStore';
 import type { Categoria } from './datosMenu';
 
 export default function AdminMenu() {
-  const { items, actualizarItem, agregarItem, eliminarItem, restablecer } = useMenu();
+  const { items, error, actualizarItem, agregarItem, eliminarItem, restablecer } = useMenu();
   const [nombre, setNombre] = useState('');
   const [categoria, setCategoria] = useState<Categoria>('bebida');
   const [precio, setPrecio] = useState('');
@@ -52,6 +52,7 @@ export default function AdminMenu() {
       </form>
 
       {aviso && <p className="form-success" role="status">{aviso}</p>}
+      {error && <p className="form-error" role="alert">{error}</p>}
 
       <table className="admin-tabla">
         <thead>
@@ -64,14 +65,16 @@ export default function AdminMenu() {
               <td>{item.categoria === 'bebida' ? 'Bebida' : 'Postre'}</td>
               <td>
                 <input
+                  key={`${item.id}-${item.precio}`}
                   type="number"
                   min="1"
                   max="9999"
-                  value={item.precio}
+                  defaultValue={item.precio}
                   aria-label={`Precio de ${item.nombre}`}
-                  onChange={(e) => {
+                  onBlur={(e) => {
                     const valor = Number(e.target.value);
-                    if (Number.isFinite(valor) && valor > 0) actualizarItem(item.id, { precio: valor });
+                    if (Number.isFinite(valor) && valor > 0 && valor <= 9999 && valor !== item.precio) actualizarItem(item.id, { precio: valor });
+                    else e.target.value = String(item.precio);
                   }}
                 />
               </td>
@@ -92,7 +95,7 @@ export default function AdminMenu() {
       </table>
 
       <div className="admin-acciones">
-        <button type="button" className="boton-secundario" onClick={restablecer}>Restablecer menú original</button>
+        <button type="button" className="boton-secundario" onClick={() => { if (window.confirm('Esto reemplaza el menú actual por el original para todos los visitantes. ¿Continuar?')) restablecer(); }}>Restablecer menú original</button>
       </div>
     </>
   );
