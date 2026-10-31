@@ -1,9 +1,4 @@
-
-export type Categoria =
-  | 'cafe'
-  | 'bebida'
-  | 'panaderia'
-  | 'postre';
+export type Categoria = 'caliente' | 'fria' | 'panaderia' | 'postre';
 
 export type ItemMenu = {
   id: string;
@@ -16,10 +11,10 @@ export type ItemMenu = {
 };
 
 export const menuInicial: ItemMenu[] = [
-  // CAFÉS CALIENTES
+  // Bebidas calientes
   {
     id: 'americano',
-    categoria: 'cafe',
+    categoria: 'caliente',
     nombre: 'Americano',
     precio: 60,
     descripcion: 'Café intenso y equilibrado.',
@@ -28,7 +23,7 @@ export const menuInicial: ItemMenu[] = [
   },
   {
     id: 'latte',
-    categoria: 'cafe',
+    categoria: 'caliente',
     nombre: 'Latte',
     precio: 80,
     descripcion: 'Espresso suave con leche cremosa.',
@@ -37,7 +32,7 @@ export const menuInicial: ItemMenu[] = [
   },
   {
     id: 'cappuccino',
-    categoria: 'cafe',
+    categoria: 'caliente',
     nombre: 'Cappuccino',
     precio: 85,
     descripcion: 'Espuma de leche y espresso.',
@@ -46,7 +41,7 @@ export const menuInicial: ItemMenu[] = [
   },
   {
     id: 'espresso',
-    categoria: 'cafe',
+    categoria: 'caliente',
     nombre: 'Espresso',
     precio: 70,
     descripcion: 'Pequeño, intenso y aromático.',
@@ -55,18 +50,16 @@ export const menuInicial: ItemMenu[] = [
   },
   {
     id: 'moka',
-    categoria: 'cafe',
+    categoria: 'caliente',
     nombre: 'Moka',
     precio: 90,
     descripcion: 'Espresso, chocolate y leche.',
     disponible: false,
     imagen: '/images/moka.jpg'
   },
-
-  // BEBIDAS
   {
     id: 'chocolate',
-    categoria: 'bebida',
+    categoria: 'caliente',
     nombre: 'Chocolate caliente',
     precio: 80,
     descripcion: 'Chocolate cremoso y reconfortante.',
@@ -74,25 +67,72 @@ export const menuInicial: ItemMenu[] = [
     imagen: '/images/chocolate.jpg'
   },
   {
-    id: 'frappe',
-    categoria: 'bebida',
-    nombre: 'Frappé de café',
-    precio: 85,
-    descripcion: 'Bebida fría de café con hielo y leche.',
+    id: 'macchiato',
+    categoria: 'caliente',
+    nombre: 'Macchiato',
+    precio: 75,
+    descripcion: 'Espresso con un toque de leche.',
     disponible: true,
-    imagen: '/images/frappe.jpg'
+    imagen: '/images/macchiato.jpg'
   },
   {
+    id: 'cafe-vainilla',
+    categoria: 'caliente',
+    nombre: 'Café con vainilla',
+    precio: 85,
+    descripcion: 'Café con leche y un toque de vainilla.',
+    disponible: true,
+    imagen: '/images/cafe-vainilla.jpg'
+  },
+
+  // Bebidas frías
+  {
     id: 'cafe-helado',
-    categoria: 'bebida',
+    categoria: 'fria',
     nombre: 'Café helado',
     precio: 75,
-    descripcion: 'Café refrescante servido con hielo.',
+    descripcion: 'Café preparado con hielo.',
     disponible: true,
     imagen: '/images/cafe-helado.jpg'
   },
+  {
+    id: 'frappe-cafe',
+    categoria: 'fria',
+    nombre: 'Frappé de café',
+    precio: 90,
+    descripcion: 'Bebida fría de café con hielo.',
+    disponible: true,
+    imagen: '/images/frappe-cafe.jpg'
+  },
+  {
+    id: 'frappe-chocolate',
+    categoria: 'fria',
+    nombre: 'Frappé de chocolate',
+    precio: 95,
+    descripcion: 'Bebida fría con chocolate cremoso.',
+    disponible: true,
+    imagen: '/images/frappe-chocolate.jpg'
+  },
+  {
+    id: 'te-helado',
+    categoria: 'fria',
+    nombre: 'Té helado',
+    precio: 55,
+    descripcion: 'Té refrescante servido con hielo.',
+    disponible: true,
+    imagen: '/images/te-helado.jpg'
+  },
+  {
+    id: 'limonada',
+    categoria: 'fria',
+    nombre: 'Limonada',
+    precio: 50,
+    descripcion: 'Bebida fresca preparada con limón.',
+    disponible: true,
+    imagen: '/images/limonada.jpg'
+  },
 
-  // PANADERÍA Y ALIMENTOS
+  // Panadería y alimentos
   {
     id: 'croissant',
     categoria: 'panaderia',
@@ -120,8 +160,35 @@ export const menuInicial: ItemMenu[] = [
     disponible: true,
     imagen: '/images/sandwich.jpg'
   },
+  {
+    id: 'baguette',
+    categoria: 'panaderia',
+    nombre: 'Baguette',
+    precio: 75,
+    descripcion: 'Pan crujiente con ingredientes frescos.',
+    disponible: true,
+    imagen: '/images/baguette.jpg'
+  },
+  {
+    id: 'chapata',
+    categoria: 'panaderia',
+    nombre: 'Chapata',
+    precio: 80,
+    descripcion: 'Pan suave preparado con ingredientes frescos.',
+    disponible: true,
+    imagen: '/images/chapata.jpg'
+  },
+  {
+    id: 'pan-ajo',
+    categoria: 'panaderia',
+    nombre: 'Pan de ajo',
+    precio: 45,
+    descripcion: 'Pan horneado con mantequilla y ajo.',
+    disponible: true,
+    imagen: '/images/pan-ajo.jpg'
+  },
 
-  // PASTELES Y POSTRES
+  // Pasteles y postres
   {
     id: 'pastel-chocolate',
     categoria: 'postre',
@@ -145,17 +212,35 @@ export const menuInicial: ItemMenu[] = [
     categoria: 'postre',
     nombre: 'Cheesecake',
     precio: 65,
-    descripcion: 'Pastel cremoso de queso con una base crujiente.',
+    descripcion: 'Pastel de queso suave y cremoso.',
     disponible: true,
     imagen: '/images/cheesecake.jpg'
   },
   {
     id: 'brownie',
     categoria: 'postre',
-    nombre: 'Brownie de chocolate',
+    nombre: 'Brownie',
     precio: 45,
-    descripcion: 'Bizcocho suave de chocolate con textura húmeda.',
+    descripcion: 'Postre de chocolate suave y delicioso.',
     disponible: true,
     imagen: '/images/brownie.jpg'
+  },
+  {
+    id: 'galletas',
+    categoria: 'postre',
+    nombre: 'Galletas con chispas de chocolate',
+    precio: 30,
+    descripcion: 'Galletas crujientes con chispas de chocolate.',
+    disponible: true,
+    imagen: '/images/galletas.jpg'
+  },
+  {
+    id: 'pay-limon',
+    categoria: 'postre',
+    nombre: 'Pay de limón',
+    precio: 55,
+    descripcion: 'Postre cremoso con un toque de limón.',
+    disponible: true,
+    imagen: '/images/pay-limon.jpg'
   }
 ];
