@@ -1,3 +1,4 @@
+
 export type Categoria = 'caliente' | 'fria' | 'panaderia' | 'postre';
 
 export type ItemMenu = {
@@ -114,6 +115,15 @@ export const menuInicial: ItemMenu[] = [
     imagen: '/images/frappe-chocolate.jpg'
   },
   {
+    id: 'frappe-vainilla',
+    categoria: 'fria',
+    nombre: 'Frappé de vainilla',
+    precio: 90,
+    descripcion: 'Bebida fría cremosa con sabor a vainilla.',
+    disponible: true,
+    imagen: '/images/frappe-vainilla.jpg'
+  },
+  {
     id: 'te-helado',
     categoria: 'fria',
     nombre: 'Té helado',
@@ -159,15 +169,6 @@ export const menuInicial: ItemMenu[] = [
     descripcion: 'Una opción práctica y deliciosa.',
     disponible: true,
     imagen: '/images/sandwich.jpg'
-  },
-  {
-    id: 'baguette',
-    categoria: 'panaderia',
-    nombre: 'Baguette',
-    precio: 75,
-    descripcion: 'Pan crujiente con ingredientes frescos.',
-    disponible: true,
-    imagen: '/images/baguette.jpg'
   },
   {
     id: 'chapata',
@@ -233,14 +234,5 @@ export const menuInicial: ItemMenu[] = [
     descripcion: 'Galletas crujientes con chispas de chocolate.',
     disponible: true,
     imagen: '/images/galletas.jpg'
-  },
-  {
-    id: 'pay-limon',
-    categoria: 'postre',
-    nombre: 'Pay de limón',
-    precio: 55,
-    descripcion: 'Postre cremoso con un toque de limón.',
-    disponible: true,
-    imagen: '/images/pay-limon.jpg'
   }
 ];
