@@ -3,7 +3,10 @@ import type { ItemMenu } from './datosMenu';
 
 export function Menu() {
   const { items } = useMenu();
-  const bebidas = items.filter((item) => item.categoria === 'bebida');
+
+  const cafes = items.filter((item) => item.categoria === 'caliente');
+  const bebidas = items.filter((item) => item.categoria === 'fria');
+  const panaderia = items.filter((item) => item.categoria === 'panaderia');
   const postres = items.filter((item) => item.categoria === 'postre');
 
   return (
@@ -14,14 +17,28 @@ export function Menu() {
         <p>Selecciona a tu gusto.</p>
       </div>
 
-      <h3 className="menu-subtitulo">Bebidas</h3>
+      <h3 className="menu-subtitulo">☕ Bebidas calientes</h3>
       <div className="menu-grid">
-        {bebidas.map((item) => (
+        {cafes.map((item) => (
           <MenuCard key={item.id} item={item} icono="☕" />
         ))}
       </div>
 
-      <h3 className="menu-subtitulo">Postres</h3>
+      <h3 className="menu-subtitulo">🥤 Bebidas frías</h3>
+      <div className="menu-grid">
+        {bebidas.map((item) => (
+          <MenuCard key={item.id} item={item} icono="🥤" />
+        ))}
+      </div>
+
+      <h3 className="menu-subtitulo">🥐 Panadería y alimentos</h3>
+      <div className="menu-grid">
+        {panaderia.map((item) => (
+          <MenuCard key={item.id} item={item} icono="🥐" />
+        ))}
+      </div>
+
+      <h3 className="menu-subtitulo">🍰 Pasteles y postres</h3>
       <div className="menu-grid">
         {postres.map((item) => (
           <MenuCard key={item.id} item={item} icono="🍰" />
@@ -40,11 +57,13 @@ function MenuCard({ item, icono }: { item: ItemMenu; icono: string }) {
           {item.disponible ? 'Disponible' : 'Agotado'}
         </span>
       </div>
+
       <div className="menu-card-precio">
         {item.imagen && <img src={item.imagen} alt={item.nombre} />}
         <span>{icono}</span>
         <span>${item.precio}</span>
       </div>
+
       <p>{item.descripcion}</p>
     </article>
   );
