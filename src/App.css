@@ -117,8 +117,15 @@ main > section {
 
 /* Inicio */
 .inicio {
-  background: linear-gradient(180deg, var(--cafe-claro) 0%, var(--crema) 100%);
+background:
+  linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+  url("/images/cafeteria-fondo.jpg") center/cover no-repeat;
   text-align: center;
+  color: white;
+  min-height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .inicio-contenido {
