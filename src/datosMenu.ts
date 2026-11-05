@@ -226,13 +226,4 @@ export const menuInicial: ItemMenu[] = [
     disponible: true,
     imagen: '/images/brownie.jpg'
   },
-  {
-    id: 'galletas',
-    categoria: 'postre',
-    nombre: 'Galletas con chispas de chocolate',
-    precio: 30,
-    descripcion: 'Galletas crujientes con chispas de chocolate.',
-    disponible: true,
-    imagen: '/images/galletas.jpg'
-  }
-];
+  ];
