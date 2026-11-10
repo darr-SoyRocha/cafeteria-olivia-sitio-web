@@ -2,10 +2,17 @@ import { useState } from 'react';
 import { useMenu } from './menuStore';
 import type { Categoria } from './datosMenu';
 
+const NOMBRES_CATEGORIA: Record<Categoria, string> = {
+  caliente: 'Bebida caliente',
+  fria: 'Bebida fría',
+  panaderia: 'Panadería y alimentos',
+  postre: 'Pastel o postre',
+};
+
 export default function AdminMenu() {
   const { items, error, actualizarItem, agregarItem, eliminarItem, restablecer } = useMenu();
   const [nombre, setNombre] = useState('');
-  const [categoria, setCategoria] = useState<Categoria>('bebida');
+  const [categoria, setCategoria] = useState<Categoria>('caliente');
   const [precio, setPrecio] = useState('');
   const [descripcion, setDescripcion] = useState('');
   const [aviso, setAviso] = useState('');
@@ -37,8 +44,10 @@ export default function AdminMenu() {
           </label>
           <label>Categoría
             <select value={categoria} onChange={(e) => setCategoria(e.target.value as Categoria)}>
-              <option value="bebida">Bebida</option>
-              <option value="postre">Postre</option>
+              <option value="caliente">Bebida caliente</option>
+              <option value="fria">Bebida fría</option>
+              <option value="panaderia">Panadería y alimentos</option>
+              <option value="postre">Pastel o postre</option>
             </select>
           </label>
           <label>Precio ($)
@@ -62,7 +71,7 @@ export default function AdminMenu() {
           {items.map((item) => (
             <tr key={item.id}>
               <td>{item.nombre}</td>
-              <td>{item.categoria === 'bebida' ? 'Bebida' : 'Postre'}</td>
+              <td>{NOMBRES_CATEGORIA[item.categoria]}</td>
               <td>
                 <input
                   key={`${item.id}-${item.precio}`}
